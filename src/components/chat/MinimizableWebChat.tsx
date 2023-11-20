@@ -79,7 +79,7 @@ const MinimizableWebChat: FC<MinimizableWebChatProps> = () => {
             styleSet={styleSet}
             token={token}
           /> */}
-          <iframe id="frame-chat" style={{height:"100%"}} src="http://localhost:5500/chat.html"  title="Iframe Example"></iframe>
+          <iframe id="frame-chat" style={{height:"100%"}} src="https://mouron-it.github.io/truck-web-chat/"  title="Iframe Example"></iframe>
 
         </div>
       )}
