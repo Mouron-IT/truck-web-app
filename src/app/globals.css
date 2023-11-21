@@ -165,6 +165,13 @@ a {
   width: 64px;
 }
 
+.maximize img {
+  width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor (botón) */
+  height: 100%; /* Hace que la imagen ocupe el 100% de la altura del contenedor (botón) */
+  object-fit: cover; /* Escala la imagen para que cubra completamente el contenedor */
+  border-radius: 50%; /* Mantiene el borde redondeado */
+}
+
 .minimizable-web-chat > button.maximize > .red-dot {
   color: #EF0000;
   font-size: 14px;

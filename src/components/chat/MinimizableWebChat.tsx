@@ -1,8 +1,13 @@
-"use client"
+"use client";
+import { faArrowRightArrowLeft, faChevronDown  } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { FC, useCallback, useState } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 interface MinimizableWebChatProps {}
+
+library.add(faArrowRightArrowLeft, faChevronDown);
 
 const MinimizableWebChat: FC<MinimizableWebChatProps> = () => {
   const [loaded, setLoaded] = useState(false);
@@ -13,8 +18,6 @@ const MinimizableWebChat: FC<MinimizableWebChatProps> = () => {
 
   // To learn about reconnecting to a conversation, see the following documentation:
   // https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-reconnect-to-conversation?view=azure-bot-service-4.0
-
-
 
   const handleMaximizeButtonClick = useCallback(async () => {
     setLoaded(true);
@@ -34,16 +37,9 @@ const MinimizableWebChat: FC<MinimizableWebChatProps> = () => {
     <div className="minimizable-web-chat">
       {minimized && (
         <button className="maximize" onClick={handleMaximizeButtonClick}>
-          <span
-            className={
-              token
-                ? "ms-Icon ms-Icon--MessageFill"
-                : "ms-Icon ms-Icon--Message"
-            }
-          />
-          {newMessage && (
-            <span className="ms-Icon ms-Icon--CircleShapeSolid red-dot" />
-          )}
+
+          <img src="/bot.png" alt="" />
+      
         </button>
       )}
       {loaded && (
@@ -56,25 +52,23 @@ const MinimizableWebChat: FC<MinimizableWebChatProps> = () => {
           <header>
             <div className="filler" />
             <button className="switch" onClick={handleSwitchButtonClick}>
-              <span className="ms-Icon ms-Icon--Switch" />
+              <FontAwesomeIcon icon="arrow-right-arrow-left" />
             </button>
             <button className="minimize" onClick={handleMinimizeButtonClick}>
-              <span className="ms-Icon ms-Icon--ChromeMinimize" />
+              <FontAwesomeIcon icon={["fas", "chevron-down"]} />
             </button>
           </header>
-          {/* <WebChat
-            className="react-web-chat"
-            onFetchToken={handleFetchToken}
-            store={store}
-            styleSet={styleSet}
-            token={token}
-          /> */}
-          <iframe id="frame-chat" style={{height:"100%"}} src="https://mouron-it.github.io/truck-web-chat/"  title="Iframe Example"></iframe>
 
+          <iframe
+            id="frame-chat"
+            style={{ height: "100%" }}
+            src="https://mouron-it.github.io/truck-web-chat/"
+            title="Iframe Example"
+          ></iframe>
         </div>
       )}
     </div>
   );
 };
 
-export default MinimizableWebChat
+export default MinimizableWebChat;
