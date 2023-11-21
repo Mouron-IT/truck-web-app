@@ -2,15 +2,12 @@
 
 iniciarReconocimiento();
 
-const utterance = new SpeechSynthesisUtterance();
-
 window.addEventListener("message", (event) => {
     if (event.data.type === "receive_message") {
 
         console.log(event)
         speechSynthesis.cancel();
-        utterance.text = event.data.payload.text;
-        speechSynthesis.speak(utterance);
+        startSynthesis(event.data.payload.text);
     }
   });
 

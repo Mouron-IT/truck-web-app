@@ -27,6 +27,8 @@ export default function RootLayout({
           />
         </a> */}
         <MinimizableWebChat />
+        <Script src="https://aka.ms/csspeech/jsbrowserpackageraw" />
+        <Script src="/synthesis.js" />
         <Script src="/microphone.js" />
       </body>
     </html>
