@@ -1,12 +1,11 @@
 
 
-iniciarReconocimiento();
+
 
 window.addEventListener("message", (event) => {
     if (event.data.type === "receive_message") {
 
         console.log(event)
-        speechSynthesis.cancel();
         startSynthesis(event.data.payload.text);
     }
   });
@@ -30,22 +29,10 @@ function iniciarReconocimiento() {
             text: transcript,
           },
         },
-        //"http://localhost:5500"
-        "https://mouron-it.github.io"
+        "http://localhost:5500"
+        //"https://mouron-it.github.io"
       );
 
-    //   fetch(
-    //     "https://truckdemofunctions.azurewebsites.net/api/question?q=" +
-    //       transcript
-    //   )
-    //     .then((response) => response.text())
-    //     .then((result) => {
-    //       console.log(result);
-
-    //       let utterance = new SpeechSynthesisUtterance(result);
-    //       speechSynthesis.speak(utterance);
-    //     })
-    //     .catch((error) => console.log("error", error));
     }
   };
 
