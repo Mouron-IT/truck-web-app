@@ -29,8 +29,8 @@ function iniciarReconocimiento() {
             text: transcript,
           },
         },
-        "http://localhost:5500"
-        //"https://mouron-it.github.io"
+        //"http://localhost:5500"
+        "https://mouron-it.github.io"
       );
 
     }
